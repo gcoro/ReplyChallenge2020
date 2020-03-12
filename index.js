@@ -11,7 +11,32 @@ function writeToFile(rows) {
 }
 
 function parseInput(contentToParse) {
-return contentToParse
+    const lines = contentToParse.replace(new RegExp('\\r', 'g'), '').split('\n');
+    if (lines[lines.length - 1] === '')
+    lines.splice(lines.length - 1, 1);
+    const [v, h] = lines.splice(0, 1)[0].split(' ');
+    const map = lines.splice(0,+h);
+    const developersCount = +lines.splice(0,1)
+    const initialDevelopers = lines.splice(0,developersCount).map((developer, index) => {
+        const args = developer.split(" ");
+        return {
+            id:index,
+            company: args[0],
+            bonusPotential:args[1],
+            numberOfSkills: +args[2],
+            skills:[args.splice(3,args.length)]
+        }
+    });
+    const managersCount = +lines.splice(0,1)
+    const initialManagers = lines.splice(0,managersCount).map((manager, index) => {
+        const args = manager.split(" ");
+        return {
+            id:index,
+            company: args[0],
+            bonusPotential:args[1]
+        }
+    });
+return {initialManagers,initialDevelopers,map}
 }
 
 function compute(map, developers, managers) {
