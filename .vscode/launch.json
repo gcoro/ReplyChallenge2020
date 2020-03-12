@@ -12,7 +12,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\index.js",
-            "args": ["a_solar.txt"]
+            "args": ["c_soup.txt"]
         }
     ]
 }

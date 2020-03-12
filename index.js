@@ -68,11 +68,11 @@ function parseOutput(developers, managers) {
 	const results = [];
 	// todo ? order developers by id
 	developers.forEach(el => {
-		results.push(el.placement ? `${el.placement.h} ${el.placement.v}` : 'X')
+		results.push(el.placement ? `${el.placement.v} ${el.placement.h}` : 'X')
 	});
 
 	managers.forEach(el => {
-		results.push(el.placement ? `${el.placement.h} ${el.placement.v}` : 'X')
+		results.push(el.placement ? `${el.placement.v} ${el.placement.h}` : 'X')
 	});
 
 	return results;
