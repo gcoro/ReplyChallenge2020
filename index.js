@@ -15,7 +15,27 @@ return contentToParse
 }
 
 function compute(map, developers, managers) {
-	// todo
+	const hLength = map.length;
+	const vLength = map[0].length;
+
+	let devCount = 0;
+	let manCount = 0;
+
+	for (let i = 0; i < hLength; i++) {
+		for (let j = 0; j < vLength; j++) {
+			if (manCount === managers.length && devCount === developers.length) return;
+
+			// random placement
+			if (map[i][j] === '_') {
+				developers[devCount].placement = { h: i, v: j };
+				devCount++;
+			} else if (map[i][j] === 'M') {
+				managers[manCount].placement = { h: i, v: j };
+				manCount++;
+			}
+		}
+	}
+
 	return { developers, managers };
 }
 
