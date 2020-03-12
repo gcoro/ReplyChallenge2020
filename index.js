@@ -14,6 +14,11 @@ function parseInput(contentToParse) {
 return contentToParse
 }
 
+function compute(map, developers, managers) {
+	// todo
+	return { developers, managers };
+}
+
 function parseOutput(developers, managers) {
 	const results = [];
 	// todo ? order developers by id
@@ -31,11 +36,10 @@ function parseOutput(developers, managers) {
 
 const content = readContent();
 
-const { } = parseInput(content);
+const { map, initialDevelopers, initialManagers } = parseInput(content);
 
+const { developers, managers } = compute(map, initialDevelopers, initialManagers);
 
-const result = ['test']
+const parsedOutput = parseOutput(developers, managers);
 
-const parsedOutput = parseOutput(result);
-// OOOH
 writeToFile(parsedOutput);
