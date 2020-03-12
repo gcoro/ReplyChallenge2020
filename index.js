@@ -48,13 +48,13 @@ function compute(map, developers, managers) {
 
 	for (let i = 0; i < hLength; i++) {
 		for (let j = 0; j < vLength; j++) {
-			if (manCount === managers.length && devCount === developers.length) return;
+			if (manCount === managers.length && devCount === developers.length) break;
 
 			// random placement
-			if (map[i][j] === '_') {
+			if (map[i][j] === '_' && devCount < developers.length) {
 				developers[devCount].placement = { h: i, v: j };
 				devCount++;
-			} else if (map[i][j] === 'M') {
+			} else if (map[i][j] === 'M' && manCount < managers.length) {
 				managers[manCount].placement = { h: i, v: j };
 				manCount++;
 			}
