@@ -14,8 +14,18 @@ function parseInput(contentToParse) {
 return contentToParse
 }
 
-function parseOutput(results) {
-	return results
+function parseOutput(developers, managers) {
+	const results = [];
+	// todo ? order developers by id
+	developers.forEach(el => {
+		results.push(el.placement ? `${el.placement.h} ${el.placement.v}` : 'X')
+	});
+
+	managers.forEach(el => {
+		results.push(el.placement ? `${el.placement.h} ${el.placement.v}` : 'X')
+	});
+
+	return results;
 }
 
 
